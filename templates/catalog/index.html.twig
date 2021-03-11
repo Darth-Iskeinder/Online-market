@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="left-sidebar">
+                        <h2>Каталог</h2>
+                        <div class="panel-group category-products">
+                            {% for category in categories %}
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="{{ path('category', {id: category.id}) }}">{{ category.name }}</a></h4>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-9 padding-right">
+                    <div class="features_items"><!--features_items-->
+                        <h2 class="title text-center">Последние товары</h2>
+                        {% for product in latestProducts %}
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="images/home/product6.jpg" alt="" />
+                                            <h2>{{ product.price }}</h2>
+                                            <a href="{{ path('product') }}"><p>{{ product.name }}</p></a>
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                        </div>
+                                        {% if (product.is_new) %}
+                                            <img src="images/product-details/new.jpg" class="new" alt="">
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div><!--features_items-->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
