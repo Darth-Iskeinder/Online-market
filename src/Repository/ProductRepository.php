@@ -25,7 +25,6 @@ class ProductRepository extends ServiceEntityRepository
             ->select( 'p.id', 'p.name', 'p.price', 'p.image', 'p.is_new')
             ->where('p.status = 1')
             ->orderBy('p.id', 'desc')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
             ;
