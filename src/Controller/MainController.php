@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route ("/")
+     * @Route ("/", name="main")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function mainPage(ProductRepository $productRepository, PaginatorInterface $paginator, Request $request)
